@@ -1,0 +1,100 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package exclass1;
+
+import java.util.Scanner;
+/**
+ *
+ * @author Carlos
+ */
+public class ExClass1 {
+    
+    
+       
+       
+    public static void main(String[] args) {
+        
+        String repeat = null;
+        int num;
+        
+        Scanner leit = new Scanner(System.in);
+        Caixa bar = new Caixa();
+        Caixa rab = new Caixa();
+        
+        rab.setNome("Aldo");
+        rab.setId("18");
+        rab.setCpf("721.035.003-53");
+        rab.setSaldo(5);
+        
+        bar.setNome("Carlos");
+        bar.setId("18");
+        bar.setCpf("779.035.000-58");
+        bar.setSaldo(10);
+        
+
+       
+        
+        System.out.printf("Olá senhor"+" "+bar.getNome()+" "+"seja bem-vindo ao nosso caixa \n");
+        do{
+            
+        System.out.println("Escolha qual operação quer fazer:");
+        System.out.println("[1] Depositar [2] Saque [3] Verificar Saldo [4] Transferencia [5]Imprimir dados pessoais");
+        num = leit.nextInt();
+        
+           if(num == 1){
+           System.out.println("Digite o valor do deposito:");
+           bar.dep(leit.nextInt());
+           
+           System.out.println("Deseja voltar para o painel: (S / N)");
+           repeat = leit.next(); 
+       }
+       
+           if(num == 2){
+           
+           System.out.println("Qual valor do saque:");    
+           bar.saque(leit.nextInt());
+           
+           System.out.println("Deseja voltar para o painel: (S / N)");
+           repeat = leit.next();
+       }
+           
+           if(num == 3){
+               bar.verificarSaldo();
+               
+           System.out.println("Deseja voltar para o painel: (S / N)");
+           repeat = leit.next();
+       }
+           
+           if(num == 4){
+               System.out.println("Deseja transferir quanto para "+rab.getNome()+":");
+               bar.transfer(leit.nextInt());
+               double x = bar.saldon + rab.saldo;
+               rab.setSaldo(x);
+               System.out.println(rab.getSaldo());
+          
+               
+               System.out.println("Deseja voltar para o painel: (S / N)");
+               repeat = leit.next();
+       }
+           
+           
+           if(num == 5){
+               System.out.println("Nome:"+bar.getNome());
+               System.out.println("Idade:"+bar.getId());
+               System.out.println("CPF:"+bar.getCpf());
+               
+               System.out.println("Deseja voltar para o painel: (S / N)");
+               repeat = leit.next();
+       }     
+           
+           
+        }while(repeat.equals("S"));
+       
+        
+        
+        System.out.println("-Programa finalizado-");
+       }
+        }
