@@ -1,0 +1,97 @@
+
+package exclass1;
+
+import java.util.Scanner;
+public class Caixa {
+    public String nome;   //Nome
+    public String id;   //idade
+    public String cpf;   //cpf
+    public double saldo = 0;   //saldo
+    public double saldon = 0;
+    Scanner ler = new Scanner(System.in);
+          
+    public String getNome() {
+        return nome;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+    
+    public double getSaldon() {
+        return saldon;
+    }
+
+    public void setSaldon(double saldon) {
+        this.saldon = saldon;
+    }
+
+    public void verificarSaldo(){
+        System.out.println("Seu saldo é"+" R$"+getSaldo());
+ }
+    public void saque(double nvalor){
+        if(saldo < nvalor){
+            System.out.println("Você não tem saldo suficiente para valor de saque");
+        }
+        
+        if(saldo >= nvalor){
+       saldo = (saldo - nvalor);
+        }
+ }
+    public void dep(int valor){
+        saldo = (saldo + valor);
+        System.out.printf("Você fez um deposito de R$ %d \n",valor);
+       
+       
+ }
+    
+    public void transfer(double t){
+    
+        if(saldo < t){
+            System.out.println("Você não tem saldo suficiente para fazer esta transferência");
+        }
+        
+        if(saldo >= t){
+       this.saldon = saldon + t;
+       saldo = (saldo - t);     
+        }
+        
+        
+        
+    }
+    
+    
+
+    
+    
+ 
+   
+    
+    
+}
+
+
